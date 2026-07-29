@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Mapa de personas — Igreja Nova, AL</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap');
+
+  :root{
+    --rio: #0c4a6e;
+    --rio-claro: #2b7a9e;
+    --arroz: #5a7d2a;
+    --arroz-claro: #eef3e2;
+    --barro: #b8621b;
+    --barro-claro: #f7ead9;
+    --areia: #f4efe4;
+    --tinta: #24322e;
+    --tinta-suave: #5c6b64;
+    --linha: #d8d0bd;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--areia);
+    color:var(--tinta);
+    font-family:'Source Sans 3', sans-serif;
+    padding:48px 24px 80px;
+  }
+
+  .wrap{max-width:1180px; margin:0 auto;}
+
+  header{
+    border-bottom:2px solid var(--rio);
+    padding-bottom:24px;
+    margin-bottom:36px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rio-claro);
+    font-weight:600;
+    margin:0 0 6px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:34px;
+    margin:0;
+    color:var(--rio);
+    line-height:1.15;
+  }
+  .subtitle{
+    max-width:420px;
+    font-size:14.5px;
+    color:var(--tinta-suave);
+    line-height:1.5;
+    margin:0;
+  }
+
+  .legenda{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+    font-size:13px;
+    color:var(--tinta-suave);
+  }
+  .legenda span{display:flex; align-items:center; gap:6px;}
+  .dot{width:10px; height:10px; border-radius:50%; display:inline-block;}
+
+  .table-scroll{
+    overflow-x:auto;
+    border-radius:14px;
+    border:1px solid var(--linha);
+    background:#fff;
+  }
+
+  table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:1080px;
+    font-size:14px;
+  }
+
+  thead th{
+    background:var(--rio);
+    color:#eaf3fb;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:15px;
+    text-align:left;
+    padding:18px 16px;
+    position:sticky;
+    top:0;
+    z-index:2;
+  }
+
+  thead th:first-child{
+    position:sticky;
+    left:0;
+    z-index:3;
+    background:var(--rio);
+  }
+
+  tbody th{
+    text-align:left;
+    background:var(--arroz-claro);
+    color:var(--tinta);
+    font-weight:600;
+    padding:16px;
+    width:170px;
+    min-width:170px;
+    position:sticky;
+    left:0;
+    border-right:2px solid var(--linha);
+    vertical-align:top;
+    font-size:13.5px;
+  }
+
+  tbody td{
+    padding:16px;
+    vertical-align:top;
+    border-bottom:1px solid var(--linha);
+    border-right:1px solid var(--linha);
+    color:var(--tinta);
+    line-height:1.5;
+  }
+
+  tbody tr:last-child td, tbody tr:last-child th{
+    border-bottom:none;
+  }
+
+  tbody tr:nth-child(even) td{
+    background:#fbfaf6;
+  }
+  tbody tr:nth-child(even) th{
+    background:#e4ecd3;
+  }
+
+  .persona-head{
+    min-width:190px;
+  }
+  .persona-nome{
+    display:block;
+    font-size:15px;
+  }
+  .persona-tag{
+    display:block;
+    font-weight:400;
+    font-size:11.5px;
+    opacity:.8;
+    margin-top:4px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+
+  .tag{
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    padding:3px 9px;
+    border-radius:20px;
+    margin-top:8px;
+  }
+  .tag-baixo{background:var(--barro-claro); color:var(--barro);}
+  .tag-medio{background:#fdf3d6; color:#8a6d13;}
+  .tag-alto{background:#e1efe4; color:#2a6e46;}
+
+  .nota{
+    margin-top:32px;
+    padding:20px 24px;
+    background:#fff;
+    border:1px solid var(--linha);
+    border-left:4px solid var(--barro);
+    border-radius:0 10px 10px 0;
+    font-size:14px;
+    line-height:1.6;
+    color:var(--tinta);
+  }
+  .nota strong{color:var(--rio);}
+
+  footer{
+    margin-top:40px;
+    font-size:12px;
+    color:var(--tinta-suave);
+    text-align:right;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <p class="eyebrow">Igreja Nova · AL — beira do Rio São Francisco</p>
+      <h1>Mapa de personas</h1>
+    </div>
+    <p class="subtitle">Acesso a dados climáticos e hidrológicos para agricultores, aquicultores e pescadores da agricultura familiar.</p>
+  </header>
+
+  <div class="legenda">
+    <span><span class="dot" style="background:var(--barro)"></span>Letramento digital baixo</span>
+    <span><span class="dot" style="background:#c99a1c"></span>Letramento digital médio</span>
+    <span><span class="dot" style="background:var(--arroz)"></span>Letramento digital alto</span>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Critério</th>
+          <th class="persona-head"><span class="persona-nome">Agricultor de arroz irrigado</span><span class="persona-tag">Produção · beira-rio</span></th>
+          <th class="persona-head"><span class="persona-nome">Aquicultor / piscicultor</span><span class="persona-tag">Tanques-rede</span></th>
+          <th class="persona-head"><span class="persona-nome">Pescador artesanal</span><span class="persona-tag">Pesca no rio</span></th>
+          <th class="persona-head"><span class="persona-nome">Técnico ATER / EMATER</span><span class="persona-tag">Intermediário técnico</span></th>
+          <th class="persona-head"><span class="persona-nome">Secretário(a) de agricultura</span><span class="persona-tag">Gestão pública</span></th>
+          <th class="persona-head"><span class="persona-nome">Liderança de associação</span><span class="persona-tag">Articulação comunitária</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Perfil típico</th>
+          <td>35–60 anos, propriedade familiar às margens do rio, renda sazonal ligada à safra</td>
+          <td>30–55 anos, tanques-rede ou viveiros, depende diretamente da qualidade da água</td>
+          <td>25–65 anos, embarcação pequena, renda diária ou semanal</td>
+          <td>25–45 anos, formação técnica, atende várias comunidades da região</td>
+          <td>35–55 anos, cargo público, mandato ligado à gestão local</td>
+          <td>40–65 anos, referência na comunidade, articula o coletivo</td>
+        </tr>
+        <tr>
+          <th>Acesso a tecnologia</th>
+          <td>Celular simples ou smartphone básico, sinal instável na propriedade</td>
+          <td>Smartphone comum, usa WhatsApp com regularidade</td>
+          <td>Baixo — muitos sem smartphone ou sem crédito de internet</td>
+          <td>Smartphone e notebook, acesso regular à internet</td>
+          <td>Computador e internet na secretaria, bom acesso</td>
+          <td>Varia — geralmente tem smartphone, mas com baixa fluência digital</td>
+        </tr>
+        <tr>
+          <th>Dado crítico que precisa</th>
+          <td>Previsão de chuva, nível do rio (cheia/vazante), janela de plantio e colheita</td>
+          <td>Temperatura e qualidade da água, oxigenação, alerta de mudança brusca</td>
+          <td>Regime do rio, correnteza, período de piracema, condição do tempo</td>
+          <td>Dados consolidados para orientar produtores, alertas agroclimáticos</td>
+          <td>Indicadores para planejamento de safra e resposta a emergências</td>
+          <td>Informação simplificada para repassar aos associados</td>
+        </tr>
+        <tr>
+          <th>Momento de decisão</th>
+          <td>Antes de plantar e irrigar; durante o manejo da lavoura</td>
+          <td>Antes de soltar ou despescar; monitoramento diário do tanque</td>
+          <td>Antes de sair para pescar; ao planejar a rota no rio</td>
+          <td>Nas visitas técnicas e orientações periódicas</td>
+          <td>No planejamento anual e em situações de cheia ou seca</td>
+          <td>Nas reuniões e repasses de informação para a base</td>
+        </tr>
+        <tr>
+          <th>Como acessa hoje</th>
+          <td>Boca a boca, rádio, observação empírica do comportamento do rio</td>
+          <td>Experiência própria e troca informal com outros aquicultores</td>
+          <td>Observação direta, tradição oral, rádio local</td>
+          <td>Boletins oficiais nem sempre atualizados, visitas em campo</td>
+          <td>Órgãos estaduais e federais, muitas vezes com atraso na informação</td>
+          <td>Repasse informal, boca a boca dentro da comunidade</td>
+        </tr>
+        <tr>
+          <th>Principal barreira</th>
+          <td>Falta de sinal de internet na propriedade, dado técnico difícil de interpretar</td>
+          <td>Informação genérica, não localizada para o trecho específico do rio</td>
+          <td>Baixo letramento digital, ausência de dispositivo, dado pouco confiável</td>
+          <td>Dado disperso em várias fontes, falta de padronização local</td>
+          <td>Ausência de sistema integrado, dependência de terceiros</td>
+          <td>Dificuldade de traduzir dado técnico em linguagem acessível</td>
+        </tr>
+        <tr>
+          <th>Canal ideal</th>
+          <td>Rádio comunitária, SMS, boletim visual simples</td>
+          <td>WhatsApp com alertas automáticos</td>
+          <td>Rádio, alto-falante comunitário, aviso presencial</td>
+          <td>Painel ou dashboard web, aplicativo técnico</td>
+          <td>Painel de gestão, relatórios automatizados</td>
+          <td>Grupo de WhatsApp, mensagens de voz</td>
+        </tr>
+        <tr>
+          <th>Letramento digital</th>
+          <td>Baixo a médio<span class="tag tag-baixo">Baixo/médio</span></td>
+          <td>Médio<span class="tag tag-medio">Médio</span></td>
+          <td>Baixo<span class="tag tag-baixo">Baixo</span></td>
+          <td>Alto<span class="tag tag-alto">Alto</span></td>
+          <td>Alto<span class="tag tag-alto">Alto</span></td>
+          <td>Baixo a médio<span class="tag tag-baixo">Baixo/médio</span></td>
+        </tr>
+        <tr>
+          <th>O que motiva o uso</th>
+          <td>Reduzir perda de safra por chuva ou seca imprevista</td>
+          <td>Evitar mortandade de peixes por variação brusca da água</td>
+          <td>Segurança na pesca, evitar riscos no rio</td>
+          <td>Melhorar a qualidade da orientação técnica prestada</td>
+          <td>Antecipar crises e embasar políticas públicas</td>
+          <td>Fortalecer a comunidade, ser porta-voz confiável</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota">
+    <strong>Leitura do mapa:</strong> quanto mais perto da produção direta (agricultor, aquicultor, pescador), menor o letramento digital e maior a dependência de canais não digitais como rádio e voz. Técnicos e lideranças de associação funcionam como pontes entre o dado técnico e quem decide no campo — vale desenhar a solução pensando neles como multiplicadores. A secretaria municipal é a persona com maior poder de decisão institucional e pode sustentar o projeto com infraestrutura e validação oficial.
+  </div>
+
+  <footer>Mapa de personas · Projeto de acesso a dados climáticos e hidrológicos · Igreja Nova, AL</footer>
+
+</div>
+</body>
+</html>
